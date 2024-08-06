@@ -1,11 +1,21 @@
-a{
-    background-color: rgb(255,255,255,0.7);
-    opacity: 0,5;
-    padding: 5px;
+.quoteBtn {
+    background-color: rgb(255, 255, 255, 0.7);
     border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: inherit;
 
-    &:hover{
-      background-color: white;
-
+    fa-icon{
+      padding-right: 10px;
     }
+  
+    &:hover {
+      background-color: white;
+    
   }
+}

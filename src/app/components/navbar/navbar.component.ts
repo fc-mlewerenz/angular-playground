@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponent } from "../button/button.component";
-
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -11,7 +10,5 @@ import { ButtonComponent } from "../button/button.component";
   styleUrl: './navbar.component.scss',
 })
 
-
 export class NavbarComponent {
-  
 }
