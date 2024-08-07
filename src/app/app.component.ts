@@ -5,18 +5,20 @@ import { ButtonComponent } from './components/button/button.component';
 import { SimpsonsService } from './service/quote.service';
 
 import { Quote } from './model/quote.model';
+import { QuoteContentComponent } from "./components/quote-content/quote-content.component";
 // import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ RouterOutlet, NavbarComponent, ButtonComponent ],
+  imports: [RouterOutlet, NavbarComponent, ButtonComponent, QuoteContentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  // template: `<app-home></app-home>`,
 })
 export class AppComponent {
   title = 'playground';
+  isLoading: boolean = false;
+  
   constructor(public simpsonsService: SimpsonsService) {}
 
   currentQuotes: Quote[] = [];
@@ -24,6 +26,10 @@ export class AppComponent {
   ngOnInit() {
     this.simpsonsService.quotes$.subscribe((quotes: Quote[]) => {
       this.currentQuotes = quotes;
+    });
+
+    this.simpsonsService.isLoading$.subscribe((isLoading: boolean) => {
+      this.isLoading = isLoading;
     });
   }
 }

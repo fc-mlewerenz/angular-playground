@@ -21,7 +21,7 @@ export class ButtonComponent {
   constructor(private simpsonsService: SimpsonsService) {}
 
   onClick = () : void => {
-    this.simpsonsService.getAllQuotes().subscribe((res: Quote[]) => { //
+    this.simpsonsService.getAllQuotes().subscribe((res: Quote[]) => { 
       this.simpsonsService.setQuotes(res); // Ergebnis aus Api Call
       }); 
   };

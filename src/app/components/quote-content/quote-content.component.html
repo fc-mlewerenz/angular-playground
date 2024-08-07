@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="container" *ngIf="quote && !isLoading" [ngClass]="{'left-layout': quote.characterDirection === 'Left','right-layout': quote.characterDirection === 'Right'}">
+    <div class="quoteContainer">
+      <p>"{{ quote.quote }}"</p>
+      <br />
+      <i>- {{ quote.character }}</i>
+    </div>
+
+    <img [src]="quote.image" />
+  </div>
+
+  <div class="container loading" *ngIf="isLoading">
+    <div class="quoteContainer">
+      <p>Lädt</p>
+      <div class="loader"></div>
+    </div>
+  </div>
+</div>

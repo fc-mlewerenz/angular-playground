@@ -1,2 +1,2 @@
 <app-navbar />
-{{currentQuotes.length ? currentQuotes[0].character : ""}}
+<app-quote-content [quote]="currentQuotes[0]" [isLoading]="isLoading"/>
