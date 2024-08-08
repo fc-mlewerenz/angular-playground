@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from '../model/quote.model';
 import { BehaviorSubject, finalize, Observable } from 'rxjs';
+import { faNeuter } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({ providedIn: 'root' })
 
@@ -9,10 +10,10 @@ export class SimpsonsService {
   constructor(private http: HttpClient) { }
 
   apiUrl: string = 'https://thesimpsonsquoteapi.glitch.me';
-  // isLoading: boolean = false;
 
-  private quotesSubject = new BehaviorSubject<Quote[]>([]);
+  private quotesSubject = new BehaviorSubject<Quote[]>([]); // Observable quotesSubject mit leerem Array
   quotes$: Observable<Quote[]> = this.quotesSubject.asObservable();
+  
   private isLoadingSubject = new BehaviorSubject<boolean>(false);
   isLoading$: Observable<boolean> = this.isLoadingSubject.asObservable();
 
@@ -20,7 +21,7 @@ export class SimpsonsService {
     this.isLoadingSubject.next(true);
     return this.http.get<Quote[]>(`${this.apiUrl}/quotes`).pipe(
       finalize(() => this.isLoadingSubject.next(false))
-    ); // Diese Methode gibt nun ein Observable zurück
+    ); 
   }
 
   setQuotes(quotes: Quote[]): void {

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
-import { SimpsonsService } from './service/quote.service';
+import { SimpsonsService } from './service/simpsons.service';
 
 import { Quote } from './model/quote.model';
 import { QuoteContentComponent } from "./components/quote-content/quote-content.component";

@@ -1,6 +1,6 @@
-import { Component, Input, EventEmitter, Injectable, Output } from '@angular/core';
+import { Component, Input, Injectable } from '@angular/core';
 import { Quote } from '../../model/quote.model';
-import { SimpsonsService } from '../../service/quote.service';
+import { SimpsonsService } from '../../service/simpsons.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
