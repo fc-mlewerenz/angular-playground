@@ -3,25 +3,27 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SimpsonsService } from './service/simpsons.service';
-
 import { Quote } from './model/quote.model';
-import { QuoteContentComponent } from "./components/quote-content/quote-content.component";
-// import { HomeComponent } from './home/home.component';
+import { QuoteContentComponent } from './components/quote-content/quote-content.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, ButtonComponent, QuoteContentComponent],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    ButtonComponent,
+    QuoteContentComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'playground';
   isLoading: boolean = false;
-  
-  constructor(public simpsonsService: SimpsonsService) {}
-
   currentQuotes: Quote[] = [];
+
+  constructor(public simpsonsService: SimpsonsService) {}
 
   ngOnInit() {
     this.simpsonsService.quotes$.subscribe((quotes: Quote[]) => {

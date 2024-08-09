@@ -7,7 +7,7 @@ import { Quote } from '../../model/quote.model';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './quote-content.component.html',
-  styleUrl: './quote-content.component.scss'
+  styleUrl: './quote-content.component.scss',
 })
 export class QuoteContentComponent {
   @Input() quote?: Quote;
