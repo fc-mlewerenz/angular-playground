@@ -2,28 +2,25 @@ import { Component, Input, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Quote } from '../../model/quote.model';
 import { SimpsonsService } from '../../service/simpsons.service';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+  styleUrl: './button.component.scss',
 })
-
-@Injectable({ providedIn: 'root' })
-
 export class ButtonComponent {
-  @Input() text: string = "";
-  @Input() icon!: IconDefinition;
+  @Input() text: string = '';
+  @Input() icon?: string;
 
   constructor(private simpsonsService: SimpsonsService) {}
 
-  onClick = () : void => {
-    console.log('Icon:', this.icon);
-    this.simpsonsService.getAllQuotes().subscribe((res: Quote[]) => { 
+  onClick = (): void => {
+    this.simpsonsService.getAllQuotes().subscribe((res: Quote[]) => {
       this.simpsonsService.setQuotes(res);
-      }); 
+    });
   };
 }

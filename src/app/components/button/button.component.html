@@ -1,6 +1,5 @@
-<div class="quoteBtn" (click)="onClick()">
-  <div *ngIf="icon">
-    <fa-icon [icon]="icon"></fa-icon>
-  </div>
-  <a class="mat-button" mat-button>{{ text }} </a>
-</div>
+<button mat-button (click)="onClick()">
+  <!-- <mat-icon>{{ icon }}</mat-icon> -->
+  <i [class]="icon" *ngIf="icon"></i>
+  {{ text }}
+</button>
