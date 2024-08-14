@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Direction } from '../../types/type.model';
 import { Quote } from '../../model/quote.model';
-
 @Component({
   selector: 'app-quote-content',
   standalone: true,
@@ -10,8 +10,6 @@ import { Quote } from '../../model/quote.model';
   styleUrl: './quote-content.component.scss',
 })
 export class QuoteContentComponent {
-  @Input() quote?: Quote;
-  @Input() isLoading?: boolean;
-
-  layoutDirection: any;
+  @Input() fetchedApiRes: Quote[] = [];
+  layoutDirection = Direction;
 }

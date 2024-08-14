@@ -1,4 +1,7 @@
 .mat-toolbar {
   background-color: #0033a094;
   height: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }

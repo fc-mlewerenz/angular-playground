@@ -1,2 +1,3 @@
-<app-navbar />
-<app-quote-content [quote]="currentQuotes[0]" [isLoading]="isLoading"/>
+<app-navbar [(fetchedApiRes)]="currentQuotes" [(isLoading)]="isLoading" />
+<app-quote-content *ngIf="!isLoading" [fetchedApiRes]="currentQuotes" />
+<app-loader *ngIf="isLoading"></app-loader>

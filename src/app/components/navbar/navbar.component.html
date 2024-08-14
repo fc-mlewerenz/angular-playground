@@ -1,6 +1,9 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
+  <app-slider (sliderValueChanged)="onSliderChange($event)"></app-slider>
+
   <app-button
     text="Random Zitat"
     icon="fa-solid fa-magnifying-glass"
+    (click)="handleButtonClick()"
   ></app-button>
 </mat-toolbar>

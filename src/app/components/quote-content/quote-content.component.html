@@ -1,26 +1,19 @@
 <div class="content">
-  <div
-    class="container"
-    *ngIf="quote && !isLoading"
-    [ngClass]="{
-      'left-layout': quote.characterDirection === 'Left',
-      'right-layout': quote.characterDirection === 'Right'
-    }"
-  >
-    <div class="quoteContainer">
-      <p>"{{ quote.quote }}"</p>
-      <br />
-      <i>- {{ quote.character }}</i>
-    </div>
+  <div class="flex" *ngFor="let quote of fetchedApiRes; index as i">
+    <div
+      class="container"
+      [ngClass]="{
+        'left-layout': quote.characterDirection === layoutDirection.Left,
+        'right-layout': quote.characterDirection === layoutDirection.Right
+      }"
+    >
+      <div class="quoteContainer">
+        <p>"{{ quote.quote }}"</p>
+        <br />
+        <i>- {{ quote.character }}</i>
+      </div>
 
-    <img [src]="quote.image" />
-  </div>
-
-  <div class="container loading" *ngIf="isLoading">
-    <div class="quoteContainer">
-      <img src="assets/donut.svg" alt="Icon" class="donut" />
-
-      <p>Loading...</p>
+      <img [src]="quote.image" />
     </div>
   </div>
 </div>

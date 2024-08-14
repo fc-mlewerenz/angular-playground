@@ -1,7 +1,5 @@
-import { Component, Input, Injectable } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Quote } from '../../model/quote.model';
-import { SimpsonsService } from '../../service/simpsons.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -15,12 +13,4 @@ import { MatIconModule } from '@angular/material/icon';
 export class ButtonComponent {
   @Input() text: string = '';
   @Input() icon?: string;
-
-  constructor(private simpsonsService: SimpsonsService) {}
-
-  onClick = (): void => {
-    this.simpsonsService.getAllQuotes().subscribe((res: Quote[]) => {
-      this.simpsonsService.setQuotes(res);
-    });
-  };
 }
