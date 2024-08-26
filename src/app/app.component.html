@@ -1,3 +1,4 @@
+<!-- 2-way-data binding to get data from navbar with click event-->
 <app-navbar [(fetchedApiRes)]="currentQuotes" [(isLoading)]="isLoading" />
 <app-quote-content *ngIf="!isLoading" [fetchedApiRes]="currentQuotes" />
 <app-loader *ngIf="isLoading"></app-loader>
